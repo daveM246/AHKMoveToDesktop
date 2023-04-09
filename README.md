@@ -42,7 +42,7 @@
 		previous desktop) should now work. 
 		Note that AHK would not run the script initially and installed ver 1 for compatibility.
 	
-	6. Use Akh2Exe to convert the script to an exe called AHKMoveToDeskTop_x64.exe. 
+	6. Use Akh2Exe to convert the script to an exe called AHKMoveToDeskTop_Win11_x64.exe. 
         	The compiled exe includes the necessary AHK functionality, the VD-AHK library and the icon files.
 	
 	7. To make sure the exe runs on every Windows startup, create a shortcut to it and put it into your %Startup% folder. 
