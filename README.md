@@ -1,4 +1,4 @@
- An Auto Hot Key script to enable virtual desktop switching via keyboard shortcuts including display of current desktop number
+ An Auto Hot Key script to enable virtual desktop and app switching via keyboard shortcuts including display of current desktop number
  
     Simply download the exe and run it.
     To automatically run at logon, place a shortcut to it in your startup folder
