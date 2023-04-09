@@ -28,7 +28,8 @@
     The script also ensures that at least three desktops are open at startup.
     
 
-    Used modified code from https://github.com/FuPeiJiang/VD.ahk/discussions/23 to display current desktop number on system tray icon
+    Used modified code from https://github.com/FuPeiJiang/VD.ahk/discussions/23 
+	to display current desktop number on system tray icon
 	
     Icons downloaded from https://www.iconarchive.com/show/red-orb-alphabet-icons-by-iconarchive.1.html
 
