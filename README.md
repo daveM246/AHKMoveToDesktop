@@ -1,11 +1,11 @@
  An Auto Hot Key script to enable virtual desktop switching via keyboard shortcuts including display of current desktop number
  
-     Simply download the exe and run it.
-     To automatically run at logon, place a shortcut to it in your startup folder
+    Simply download the exe and run it.
+    To automatically run at logon, place a shortcut to it in your startup folder
  
-     Created this from examples in VH.ahk ( https://github.com/FuPeiJiang/VD.ahk )
+    Created this from examples in VH.ahk ( https://github.com/FuPeiJiang/VD.ahk )
  
-     Idea and explanation of how to do it is from
+    Idea and explanation of how to do it is from
 	https://superuser.com/questions/1685845/moving-current-window-to-another-desktop-in-windows-11-using-shortcut-keys
 	but used the hot key functions from VD examples.ahk
      
