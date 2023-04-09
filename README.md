@@ -1,8 +1,35 @@
- Created this file from examples in VH.ahk ( https://github.com/FuPeiJiang/VD.ahk )
+ An Auto Hot Key script to make virtual desktop switching via keyboard shortcuts
  
- it is used by Auto Hot Key to make desktop switching via keyboard shortcuts
+ Simply download the exe and run it.
+ To automatically run at logon, place a shortcut to it in your startup folder
  
- Idea and explanation of how to do it isd from https://superuser.com/questions/1685845/moving-current-window-to-another-desktop-in-windows-11-using-shortcut-keys but used the hot key functions from VD examples.ahk
+ Created this from examples in VH.ahk ( https://github.com/FuPeiJiang/VD.ahk )
+ 
+ Idea and explanation of how to do it is from
+ 
+ https://superuser.com/questions/1685845/moving-current-window-to-another-desktop-in-windows-11-using-shortcut-keys 
+ but used the hot key functions from VD examples.ahk
+ 
+ Usage:
+ 
+    Win+Ctl+Left		Switch to Desktop to the left (with cycle to right most)
+    
+    Win+Ctl+Right		Switch to Desktop to the right (with cycle to left most)
+    
+    Win+Alt+Left		Move app to Desktop on left
+    
+    Win+Alt+Right		Move app to Desktop on right
+    
+    F1				Resets displayed Desktop number if changed by other means e.g. selection after Win+Tab
+    
+
+    The script also ensures that at least three desktops are open at startup.
+    
+
+    Used modified code from https://github.com/FuPeiJiang/VD.ahk/discussions/23 to display current desktop number on system tray icon
+	
+    Icons downloaded from https://www.iconarchive.com/show/red-orb-alphabet-icons-by-iconarchive.1.html
+
  
  Build method:
  
@@ -21,27 +48,6 @@
 	7. Uninstall AutoHotKey (no longer required)
 	
 
- Usage:
- 
-    Win+Ctl+Left		Switch to Desktop to the left (with cycle to right most)
-    
-    Win+Ctl+Right		Switch to Desktop to the right (with cycle to left most)
-    
-
-    Win+Alt+Left		Move app to Desktop on left
-    
-    Win+Alt+Right		Move app to Desktop on right
-    
-
-    F1				Resets displayed Desktop number if changed by other means e.g. selection after Win+Tab
-    
-
-    The script also ensures that at least three desktops are open at startup.
-    
-
-    Used modified code from https://github.com/FuPeiJiang/VD.ahk/discussions/23 to display current desktop number on system tray icon
-	
-    Icons downloaded from https://www.iconarchive.com/show/red-orb-alphabet-icons-by-iconarchive.1.html
 
 
 
