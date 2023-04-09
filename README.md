@@ -17,7 +17,7 @@
     Win+Alt+Left		Move app to Desktop on left
     Win+Alt+Right		Move app to Desktop on right
     
-    F1				Resets displayed Desktop number if changed by other means e.g. selection after Win+Tab
+    F1			Resets displayed Desktop number if changed by other means e.g. selection after Win+Tab
     
 
     The script also ensures that at least three desktops are open at startup.
