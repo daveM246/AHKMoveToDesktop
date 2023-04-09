@@ -34,21 +34,18 @@
 	
 	2. Clone the VD.ahk repository (it is an AutoHotkey library adding several script functions for managing virtual desktops).
 	
-	3. Inside the cloned directory, create a new file (MoveToDesktop.ahk) and paste the content (see AHKMoveToDesktop.ahk).
+	3. Inside the cloned directory, create a new file (AHKMoveToDesktop.ahk) and paste the content (see AHKMoveToDesktop.ahk).
 	
 	4. Copy the Icons folder into the VD.ahk repository folder (it is required by the script).
 	
 	5. Double-click the script to run it. 
-		The shortcuts (Win+Alt+→: Move current window to the next desktop; Win+Alt+←: Move current window to the 
-		previous desktop) should now work. 
+		The shortcuts (see 'Usage' above) should now work. 
 		Note that AHK would not run the script initially and installed ver 1 for compatibility.
 	
-	6. Use Akh2Exe to convert the script to an exe called AHKMoveToDeskTop_Win11_x64.exe. 
+	6. Use Akh2Exe (installs with AHK) to convert the script to an exe called AHKMoveToDeskTop_Win11_x64.exe. 
         	The compiled exe includes the necessary AHK functionality, the VD-AHK library and the icon files.
 	
-	7. To make sure the exe runs on every Windows startup, create a shortcut to it and put it into your %Startup% folder. 
-	
-	8. Uninstall AutoHotKey (no longer required, optional step).
+	7. Uninstall AutoHotKey (no longer required, optional step).
 	
 
 
