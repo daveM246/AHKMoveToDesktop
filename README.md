@@ -1,4 +1,4 @@
- An Auto Hot Key script to enable virtual desktop and app switching via keyboard shortcuts including display of current desktop number.
+ A compiled Auto Hot Key script to enable virtual desktop and app switching via keyboard shortcuts including display of current desktop number.
 
  Works on Windows 10 and 11
  
