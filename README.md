@@ -24,7 +24,7 @@
     The script also ensures that at least three desktops are open at startup.
 	
     Uses modified code from https://github.com/FuPeiJiang/VD.ahk/discussions/23 to display current desktop number 
-	on the system tray icon.
+	on the system tray icon after desktops are switched using the hot keys.
     Icons downloaded from https://www.iconarchive.com/show/red-orb-alphabet-icons-by-iconarchive.1.html .
 
  
