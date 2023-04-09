@@ -29,7 +29,7 @@
  
  Build method (not required if you use the exe):
  
-	1. Download and install AutoHotKey.
+	1. Download and install AutoHotKey on a Windows11 system.
 	
 	2. Clone the VD.ahk repository (it is an AutoHotkey library adding several script functions for managing virtual desktops).
 	
