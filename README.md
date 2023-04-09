@@ -42,7 +42,9 @@
 	
 	3. Inside the cloned directory, create a new file (MoveToDesktop.ahk) and paste the content (see below).
 	
-	4. Double-click the script to run it. The shortcuts (Win+Alt+→: Move current window to the next desktop; Win+Alt+←: Move current window to the previous desktop) should now work. Note that AHK would not run the script initially and installed ver 1 for compatibility.
+	4. Double-click the script to run it. 
+		The shortcuts (Win+Alt+→: Move current window to the next desktop; Win+Alt+←: Move current window to the previous desktop) 
+		should now work. Note that AHK would not run the script initially and installed ver 1 for compatibility.
 	
 	5. Use Akh2Exe to convert the script to an exe called AHKMoveToDeskTop_x64.exe
 	
