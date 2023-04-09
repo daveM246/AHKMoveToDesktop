@@ -65,8 +65,8 @@ return
 ;    msgbox % VD.getDesktopNumOfWindow("VD.ahk examples WinTitle")
     ; msgbox % VD.getDesktopNumOfWindow("ahk_exe GitHubDesktop.exe")
 ;return
-f1::
-	ActiveDesktopSetIcon()
+;f1::
+	;ActiveDesktopSetIcon()
     ;msgbox % VD.getCurrentDesktopNum()
     ;ThisDeskTopNum := VD.getCurrentDesktopNum()
     ;msgbox You are on desktop %ThisDeskTopNum%
