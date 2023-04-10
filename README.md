@@ -39,7 +39,7 @@
 	4. Copy the Icons folder into the VD.ahk repository folder (it is required by the script).
 	
 	5. Double-click the script to run it. 
-		The shortcuts (see 'Usage' above) should now work. 
+		The hot keys (see 'Usage' above) should now work. 
 		Note that AHK would not run the script initially and installed ver 1 for compatibility.
 	
 	6. Use Akh2Exe (installs with AHK) to convert the script to an exe called AHKMoveToDeskTop_Win11_x64.exe. 
