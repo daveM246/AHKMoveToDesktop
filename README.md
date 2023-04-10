@@ -9,7 +9,7 @@
  
     Created this from examples in VH.ahk ( https://github.com/FuPeiJiang/VD.ahk ).
  
-    Idea and explanation of how to do it is from
+    How to do it obtained from
 	https://superuser.com/questions/1685845/moving-current-window-to-another-desktop-in-windows-11-using-shortcut-keys
 	but used the hot key functions from 'VD examples.ahk' .
      
