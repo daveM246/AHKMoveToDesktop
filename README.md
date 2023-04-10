@@ -57,6 +57,6 @@
 	KVolker for the idea of how to display the desktop number in the system tray 
 	(https://github.com/FuPeiJiang/VD.ahk/discussions/23)
 	
-
+.
 
 
