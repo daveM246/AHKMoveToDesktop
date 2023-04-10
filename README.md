@@ -51,8 +51,8 @@
  
 	FuPeiJiang for VD.ahk (https://github.com/FuPeiJiang/VD.ahk)
 	
-	Sejmou for the post describing how to create the VHK script in 
-	https://superuser.com/questions/1685845/moving-current-window-to-another-desktop-in-windows-11-using-shortcut-keys
+	Sejmou for the post describing how to create the VHK script 
+	(https://superuser.com/questions/1685845/moving-current-window-to-another-desktop-in-windows-11-using-shortcut-keys)
 	
 	KVolker for the idea of how to display the desktop number in the system tray 
 	(https://github.com/FuPeiJiang/VD.ahk/discussions/23)
