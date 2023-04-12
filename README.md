@@ -6,7 +6,7 @@
  
     Simply download the exe and run it.
     To automatically run at logon, place a shortcut to it in your startup folder.
-    Pin th eicon to the visible portion of the system tray to show the current desktop number.
+    Pin the icon to the visible portion of the system tray to show the current desktop number.
  
     Created this from examples in VD.ahk ( https://github.com/FuPeiJiang/VD.ahk ).
  
