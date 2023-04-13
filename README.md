@@ -1,4 +1,4 @@
- #AHKMoveToDesktop
+ # AHKMoveToDesktop
  A compiled Auto Hot Key script to enable virtual desktop and app switching via keyboard shortcuts including display of current desktop number.
 
  Works on Windows 10 and 11. 
@@ -16,7 +16,7 @@
 	but used the hot key functions from 'VD examples.ahk' .
      
  
- ##Usage:
+ ## Usage:
  
     Win+Ctl+Left		Switch to Desktop to the left (with cycle to right most)
     Win+Ctl+Right		Switch to Desktop to the right (with cycle to left most)
@@ -30,7 +30,7 @@
     Icons downloaded from https://www.iconarchive.com/show/red-orb-alphabet-icons-by-iconarchive.1.html .
 
  
- ##Build method (not required if you use the exe):
+ ## Build method (not required if you use the exe):
  
 	1. Download and install AutoHotKey on a Windows11 system.
 	
@@ -49,7 +49,7 @@
 	
 	7. Uninstall AutoHotKey (no longer required, optional step).
 	
- ##Thanks to:
+ ## Thanks to:
  
 	FuPeiJiang for VD.ahk (https://github.com/FuPeiJiang/VD.ahk)
 	
