@@ -5,17 +5,6 @@
  
  Can be used in place of VirtualDesktopManager and MoveToDesktop which both stopped working on Windows 11
  
-    Simply download the exe and run it.
-    To automatically run at logon, place a shortcut to the exe in your startup folder.
-    Pin the icon to the visible portion of the system tray to show the current desktop number.
- 
-    Created this from examples in VD.ahk ( https://github.com/FuPeiJiang/VD.ahk ).
- 
-    How to do it obtained from
-	https://superuser.com/questions/1685845/moving-current-window-to-another-desktop-in-windows-11-using-shortcut-keys
-	but used the hot key functions from 'VD examples.ahk' .
-     
- 
  ## Usage:
  
     Win+Ctl+Left		Switch to Desktop to the left (with cycle to right most)
@@ -24,11 +13,11 @@
     Win+Alt+Right		Move app to Desktop on right
     
     The script also ensures that at least three desktops are open at startup.
-	
-    Uses modified code from https://github.com/FuPeiJiang/VD.ahk/discussions/23 to display current desktop number 
-	on the system tray icon after desktops are switched using the hot keys.
-    Icons downloaded from https://www.iconarchive.com/show/red-orb-alphabet-icons-by-iconarchive.1.html .
 
+    Simply download the exe and the Icons folder. Put both in a convenient folder on your computer (both must be in the same folder).
+    To automatically run at logon, place a shortcut to the exe in your startup folder (use
+	Win + R to open the run window and type shell:startup to open the startup folder).
+    Pin the icon to the visible portion of the system tray to show the current desktop number.
  
  ## Build method (not required if you use the exe):
  
@@ -51,11 +40,16 @@
 	
  ## Thanks to:
  
-	FuPeiJiang for VD.ahk (https://github.com/FuPeiJiang/VD.ahk)
-	
+	FuPeiJiang for VD.ahk
+	Created this from examples in VD.ahk ( https://github.com/FuPeiJiang/VD.ahk ).
+
 	Sejmou for the post describing how to create the VHK script 
 	(https://superuser.com/questions/1685845/moving-current-window-to-another-desktop-in-windows-11-using-shortcut-keys)
+	but used the hot key functions from 'VD examples.ahk' .
 	
 	KVolker for the idea of how to display the desktop number in the system tray 
 	(https://github.com/FuPeiJiang/VD.ahk/discussions/23)
+	Modified to display current desktop number on the system tray icon after desktops are switched using the hot keys.
+
+    Icons downloaded from https://www.iconarchive.com/show/red-orb-alphabet-icons-by-iconarchive.1.html .
 #
