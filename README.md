@@ -19,7 +19,7 @@
 	Win + R to open the run window and type shell:startup to open the startup folder).
     Pin the icon to the visible portion of the system tray to show the current desktop number.
  
- ## Build method (not required if you use the exe):
+ ## Build method (in case you want to modify it):
  
 	1. Download and install AutoHotKey on a Windows11 system.
 	
