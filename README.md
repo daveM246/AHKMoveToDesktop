@@ -1,7 +1,7 @@
  # AHKMoveToDesktop
  A compiled Auto Hot Key script to enable virtual desktop and app switching via keyboard shortcuts including display of current desktop number.
 
- Works on Windows 10 and 11. 
+ Works on Windows 10 and 11 
  
  Can be used in place of VirtualDesktopManager and MoveToDesktop which both stopped working on Windows 11
  
