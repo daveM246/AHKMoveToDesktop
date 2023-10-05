@@ -11,12 +11,14 @@
     Win+Ctl+Right		Switch to Desktop to the right (with cycle to left most)
     Win+Alt+Left		Move app to Desktop on left
     Win+Alt+Right		Move app to Desktop on right
-	Win+Alt+Del         Deletes the current virtual Desktop
+	Win+Ctrl+D			Create a new Desktop and move to it
+	Win+Alt+Del			Deletes the current virtual Desktop
     
     The script also ensures that at least three desktops are open at startup.
 
-    Simply download the exe and the Icons folder (or the zip file which contains all you need). 
-	Put both in a convenient folder on your computer (both must be in the same folder).
+    Simply download the zip file which contains all you need. 
+	Unzip it in a convenient folder on your computer.
+	Run the AHKMoveToDesktop_Win11_x64.exe. The hot keys will now work.
     To automatically run at logon, place a shortcut to the exe in your startup folder (use
 	Win + R to open the run window and type shell:startup to open the startup folder).
     Pin the icon to the visible portion of the system tray to show the current desktop number.
@@ -29,6 +31,7 @@
 	  this.Ptr_CreateDesktop := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, 10)
 	  this.Ptr_RemoveDesktop := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, 12)
 	Compiled into an exe 'AHKMoveToDesktop_Win11_x64.exe'
+	Included the two SetForegroundWindow files which are required for VD.ah2
 	
  ## Build method (in case you want to modify it):
  

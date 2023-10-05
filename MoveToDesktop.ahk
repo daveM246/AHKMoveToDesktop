@@ -42,10 +42,12 @@ ActiveDesktopSetIcon()
 return
 
 ; wrapping / cycle back to first desktop when at the last
+; using WIN+CTRL+LEFT
 ^#left::{
 	VD.goToRelativeDesktopNum(-1)
 	ActiveDesktopSetIcon()
 }
+; or WIN+CTRL+RIGHT
 ^#right::{
 	VD.goToRelativeDesktopNum(+1)
 	ActiveDesktopSetIcon()
@@ -59,6 +61,12 @@ return
 ; move window to right and follow it using WIN+ALT+RIGHT
 #!right::{
 	VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", 1))
+	ActiveDesktopSetIcon()
+}
+
+;Create a new desktop and switch to it using WIN+CTRL+D
+^#d::{
+    VD.createDesktop(true)
 	ActiveDesktopSetIcon()
 }
 
