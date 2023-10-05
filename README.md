@@ -11,8 +11,8 @@
     Win+Ctl+Right		Switch to Desktop to the right (with cycle to left most)
     Win+Alt+Left		Move app to Desktop on left
     Win+Alt+Right		Move app to Desktop on right
-	Win+Ctrl+D			Create a new Desktop and move to it
-	Win+Alt+Del			Deletes the current virtual Desktop
+	Win+Ctrl+D		Create a new Desktop and move to it
+	Win+Alt+Del		Deletes the current virtual Desktop
     
     The script also ensures that at least three desktops are open at startup.
 
