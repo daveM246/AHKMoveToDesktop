@@ -7,16 +7,16 @@
  
  ## Usage:
  
-    Win+Ctl+Left		Switch to Desktop to the left (with cycle to right most)
-    Win+Ctl+Right		Switch to Desktop to the right (with cycle to left most)
-    Win+Alt+Left		Move app to Desktop on left
-    Win+Alt+Right		Move app to Desktop on right
+    Win+Ctl+<		Switch to Desktop to the left (with cycle to right most)
+    Win+Ctl+>		Switch to Desktop to the right (with cycle to left most)
+    Win+Alt+<		Move app to Desktop on left
+    Win+Alt+>		Move app to Desktop on right
 	Win+Ctrl+D		Create a new Desktop and move to it
 	Win+Alt+Del		Deletes the current virtual Desktop
     
     The script also ensures that at least three desktops are open at startup.
 
-    Simply download the zip file which contains all you need. 
+    Simply download the zip file from the latest release. It contains all you need. 
 	Unzip it in a convenient folder on your computer.
 	Run the AHKMoveToDesktop_Win11_x64.exe. The hot keys will now work.
     To automatically run at logon, place a shortcut to the exe in your startup folder (use
@@ -32,6 +32,11 @@
 	  this.Ptr_RemoveDesktop := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, 12)
 	Compiled into an exe 'AHKMoveToDesktop_Win11_x64.exe'
 	Included the two SetForegroundWindow files which are required for VD.ah2
+
+ ### Known Issue:
+	Raised https://github.com/FuPeiJiang/VD.ahk/issues/59 as MoveToRelativeDesktopNum wasn't working
+	until after MoveWindowToRelativeDesktopNum was run. Work around is to use < and > (actually , and .) 
+	instead of left and Right keys.
 	
  ## Build method (in case you want to modify it):
  

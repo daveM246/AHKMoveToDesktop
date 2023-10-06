@@ -44,18 +44,18 @@ ActiveDesktopSetIcon()
 return
 
 ; wrapping / cycle back to first desktop when at the last
-; using WIN+CTRL+LEFT
-^#left::VD.goToRelativeDesktopNum(-1), ActiveDesktopSetIcon()
-; or WIN+CTRL+RIGHT
-^#right::VD.goToRelativeDesktopNum(+1), ActiveDesktopSetIcon()
+; using WIN+CTRL+<
+^#,::VD.goToRelativeDesktopNum(-1), ActiveDesktopSetIcon()
+; or WIN+CTRL+>
+^#.::VD.goToRelativeDesktopNum(+1), ActiveDesktopSetIcon()
 
-; move window to left and follow it using WIN+ALT+LEFT
-#!left::{
+; move window to left and follow it using WIN+ALT+<
+#!,::{
 	VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", -1))
 	ActiveDesktopSetIcon()
 }
-; move window to right and follow it using WIN+ALT+RIGHT
-#!right::{
+; move window to right and follow it using WIN+ALT+>
+#!.::{
 	VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", 1))
 	ActiveDesktopSetIcon()
 }
