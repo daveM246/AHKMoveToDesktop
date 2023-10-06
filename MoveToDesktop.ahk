@@ -38,20 +38,16 @@ ActiveDesktopSetIcon(){
 
 
 VD.createUntil(3) ;create until we have at least 3 VD
+;MsgBox "Starting AHKMoveToDesktop", VD.goToRelativeDesktopNum(+1) ;MsgBox required to make things work!
+;VD.goToDesktopNum(1)
 ActiveDesktopSetIcon()
 return
 
 ; wrapping / cycle back to first desktop when at the last
 ; using WIN+CTRL+LEFT
-^#left::{
-	VD.goToRelativeDesktopNum(-1)
-	ActiveDesktopSetIcon()
-}
+^#left::VD.goToRelativeDesktopNum(-1), ActiveDesktopSetIcon()
 ; or WIN+CTRL+RIGHT
-^#right::{
-	VD.goToRelativeDesktopNum(+1)
-	ActiveDesktopSetIcon()
-}
+^#right::VD.goToRelativeDesktopNum(+1), ActiveDesktopSetIcon()
 
 ; move window to left and follow it using WIN+ALT+LEFT
 #!left::{
@@ -65,7 +61,7 @@ return
 }
 
 ;Create a new desktop and switch to it using WIN+CTRL+D
-^#d::{
+#^d::{
     VD.createDesktop(true)
 	ActiveDesktopSetIcon()
 }
@@ -75,6 +71,7 @@ return
     VD.removeDesktop(VD.getCurrentDesktopNum())
 	ActiveDesktopSetIcon()
 }
+
 
 ;getters and stuff
 
