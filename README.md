@@ -33,6 +33,9 @@
 	Compiled into an exe 'AHKMoveToDesktop_Win11_x64.exe'
 	Included the two SetForegroundWindow files which are required for VD.ah2
 
+ ## Version 3 updates after it stopped working on windows 11 build 22631:
+	Built using lattest VD.ah2 from branch V2_port of VD.ahk
+	
  ### Known Issue:
 	Raised https://github.com/FuPeiJiang/VD.ahk/issues/59 as MoveToRelativeDesktopNum wasn't working
 	until after MoveWindowToRelativeDesktopNum was run. Work around is to use < and > (actually , and .) 
