@@ -45,7 +45,7 @@
  
 	1. Download and install AutoHotKey on a Windows11 system.
 	
-	2. Clone the VD.ahk repository (it is an AutoHotkey library adding several script functions for managing virtual desktops).
+	2. Clone the VD.ahk repository v2_port branch (it is an AutoHotkey library adding several script functions for managing virtual desktops).
 	
 	3. Inside the cloned directory, create a new file (AHKMoveToDesktop.ahk) and paste the content (see AHKMoveToDesktop.ahk).
 	
