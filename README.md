@@ -36,16 +36,14 @@
  ## Version 3 updates after it stopped working on windows 11 build 22631:
 	Built using lattest VD.ah2 from branch V2_port of VD.ahk
 	
- ### Known Issue:
-	Raised https://github.com/FuPeiJiang/VD.ahk/issues/59 as MoveToRelativeDesktopNum wasn't working
-	until after MoveWindowToRelativeDesktopNum was run. Work around is to use < and > (actually , and .) 
-	instead of left and Right keys.
+ ## Version 4 reinstated using the Left and Right arrow keys which seems to work again:
+	Built using latest AHK v2.0.12
 	
  ## Build method (in case you want to modify it):
  
 	1. Download and install AutoHotKey on a Windows11 system.
 	
-	2. Clone the VD.ahk repository v2_port branch (it is an AutoHotkey library adding several script functions for managing virtual desktops).
+	2. Clone the VD.ahk repository (it is an AutoHotkey library adding several script functions for managing virtual desktops).
 	
 	3. Inside the cloned directory, create a new file (AHKMoveToDesktop.ahk) and paste the content (see AHKMoveToDesktop.ahk).
 	
