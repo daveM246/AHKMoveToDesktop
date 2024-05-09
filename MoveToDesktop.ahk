@@ -44,28 +44,30 @@ ActiveDesktopSetIcon()
 return
 
 ; wrapping / cycle back to first desktop when at the last
-; using WIN+CTRL+<
-^#,::VD.goToRelativeDesktopNum(-1), ActiveDesktopSetIcon()
+; using WIN+CTRL+Left
 ^#Left::VD.goToRelativeDesktopNum(-1), ActiveDesktopSetIcon()
-; or WIN+CTRL+>
-^#.::VD.goToRelativeDesktopNum(+1), ActiveDesktopSetIcon()
+; or WIN+CTRL+Right
 ^#Right::VD.goToRelativeDesktopNum(+1), ActiveDesktopSetIcon()
 
-; move window to left and follow it using WIN+ALT+<
-#!,::{
-	VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", -1))
-	ActiveDesktopSetIcon()
-}
+; move window to left using WIN+ALT+Left
 #!Left::{
+	VD.MoveWindowToRelativeDesktopNum("A", -1)
+	ActiveDesktopSetIcon()
+}
+; move window to right using CTRL+WIN+ALT+Right
+#!Right::{
+	VD.MoveWindowToRelativeDesktopNum("A", 1)
+	ActiveDesktopSetIcon()
+}
+
+
+; move window to left and follow it using CTRL+WIN+ALT+Left
+^#!Left::{
 	VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", -1))
 	ActiveDesktopSetIcon()
 }
-; move window to right and follow it using WIN+ALT+>
-#!.::{
-	VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", 1))
-	ActiveDesktopSetIcon()
-}
-#!Right::{
+; move window to right and follow it using CTRL+WIN+ALT+Right
+^#!Right::{
 	VD.goToDesktopNum(VD.MoveWindowToRelativeDesktopNum("A", 1))
 	ActiveDesktopSetIcon()
 }
