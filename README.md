@@ -44,6 +44,9 @@
  ## Version 5 reinstated using the Left and Right arrow keys which seems to work again:
 	Added move app to window and follow using Ctrl-Win_Alt plus arrow keys
 
+ ## Version 6 reinstated using the Left and Right arrow keys which seems to work again:
+	Updated to use latest VD.ah2 to fix creating/removing Desktops in win11
+
  ## Build method (in case you want to modify it):
  
 	1. Download and install AutoHotKey on a Windows11 system.

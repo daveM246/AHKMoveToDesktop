@@ -1,6 +1,6 @@
 class VD {
-  static dummyStatic1 := this._init()
-
+  static dummyStatic1 := VD._init()
+  static animation_on := false
   static _init() {
     OS_Version := FileGetVersion(A_WinDir "\System32\twinui.pcshell.dll")
     splitByDot := StrSplit(OS_Version, ".")
@@ -8,17 +8,20 @@ class VD {
     revisionNumber := splitByDot[4] + 0
     if (buildNumber < 20348) {
       IID_IVirtualDesktopManagerInternal_str := "{f31574d6-b682-4cdc-bd56-1827860abec6}"
-      IID_IVirtualDesktop_str := "{FF72FFDD-BE7E-43FC-9C03-AD81681E88E4}"
+      IID_IVirtualDesktop_str := "{ff72ffdd-be7e-43fc-9c03-ad81681e88e4}"
       this.IID_IVirtualDesktopNotification_n1 := 4671150449476842316
       this.IID_IVirtualDesktopNotification_n2 := 6512317045282349502
       idx_MoveViewToDesktop := 4
       idx_GetCurrentDesktop := 6
       idx_GetDesktops := 7
+      idx_SwitchDesktop := 9
       idx_CreateDesktop := 10
       idx_RemoveDesktop := 11
+      this.idx_SwitchDesktopWithAnimation := -1
       this._dll_MoveViewToDesktop := this._dll_MoveViewToDesktop_normal
       this._dll_GetCurrentDesktop := this._dll_GetCurrentDesktop_normal
       this._dll_GetDesktops := this._dll_GetDesktops_normal
+      this._dll_SwitchDesktop := this._dll_SwitchDesktop_normal
       this._dll_CreateDesktop := this._dll_CreateDesktop_normal
       this._dll_RemoveDesktop := this._dll_RemoveDesktop_normal
       this.idx_GetId := 4
@@ -49,11 +52,14 @@ class VD {
       idx_MoveViewToDesktop := 4
       idx_GetCurrentDesktop := 6
       idx_GetDesktops := 7
+      idx_SwitchDesktop := 9
       idx_CreateDesktop := 10
       idx_RemoveDesktop := 11
+      this.idx_SwitchDesktopWithAnimation := -1
       this._dll_MoveViewToDesktop := this._dll_MoveViewToDesktop_normal
       this._dll_GetCurrentDesktop := this._dll_GetCurrentDesktop_HMONITOR
       this._dll_GetDesktops := this._dll_GetDesktops_HMONITOR
+      this._dll_SwitchDesktop := this._dll_SwitchDesktop_HMONITOR
       this._dll_CreateDesktop := this._dll_CreateDesktop_HMONITOR
       this._dll_RemoveDesktop := this._dll_RemoveDesktop_normal
       this.idx_GetId := 4
@@ -85,11 +91,14 @@ class VD {
       idx_MoveViewToDesktop := 4
       idx_GetCurrentDesktop := 6
       idx_GetDesktops := 7
+      idx_SwitchDesktop := 9
       idx_CreateDesktop := 10
       idx_RemoveDesktop := 12
+      this.idx_SwitchDesktopWithAnimation := -1
       this._dll_MoveViewToDesktop := this._dll_MoveViewToDesktop_normal
       this._dll_GetCurrentDesktop := this._dll_GetCurrentDesktop_HMONITOR
       this._dll_GetDesktops := this._dll_GetDesktops_HMONITOR
+      this._dll_SwitchDesktop := this._dll_SwitchDesktop_HMONITOR
       this._dll_CreateDesktop := this._dll_CreateDesktop_HMONITOR
       this._dll_RemoveDesktop := this._dll_RemoveDesktop_normal
       this.idx_GetId := 4
@@ -122,11 +131,14 @@ class VD {
       idx_MoveViewToDesktop := 4
       idx_GetCurrentDesktop := 6
       idx_GetDesktops := 8
+      idx_SwitchDesktop := 10
       idx_CreateDesktop := 11
       idx_RemoveDesktop := 13
+      this.idx_SwitchDesktopWithAnimation := -1
       this._dll_MoveViewToDesktop := this._dll_MoveViewToDesktop_normal
       this._dll_GetCurrentDesktop := this._dll_GetCurrentDesktop_HMONITOR
       this._dll_GetDesktops := this._dll_GetDesktops_HMONITOR
+      this._dll_SwitchDesktop := this._dll_SwitchDesktop_HMONITOR
       this._dll_CreateDesktop := this._dll_CreateDesktop_HMONITOR
       this._dll_RemoveDesktop := this._dll_RemoveDesktop_normal
       this.idx_GetId := 4
@@ -152,18 +164,61 @@ class VD {
       this._dll_CurrentVirtualDesktopChanged := VD._dll_CurrentVirtualDesktopChanged_IObjectArray
       this.IVirtualDesktopNotification_methods_count := 13
     } else if (buildNumber <= 22631 && revisionNumber < 3085) {
-      IID_IVirtualDesktopManagerInternal_str := "{4970ba3d-fd4e-4647-bea3-d89076ef4b9c}"
+      IID_IVirtualDesktopManagerInternal_str := "{a3175f2d-239c-4bd2-8aa0-eeba8b0b138e}"
       IID_IVirtualDesktop_str := "{3f07f4be-b107-441a-af0f-39d82529072c}"
       this.IID_IVirtualDesktopNotification_n1 := 5123538856297626140
       this.IID_IVirtualDesktopNotification_n2 := 8491238173783613346
       idx_MoveViewToDesktop := 4
       idx_GetCurrentDesktop := 6
       idx_GetDesktops := 7
+      idx_SwitchDesktop := 9
       idx_CreateDesktop := 10
       idx_RemoveDesktop := 12
+      this.idx_SwitchDesktopWithAnimation := 21
       this._dll_MoveViewToDesktop := this._dll_MoveViewToDesktop_normal
       this._dll_GetCurrentDesktop := this._dll_GetCurrentDesktop_normal
       this._dll_GetDesktops := this._dll_GetDesktops_normal
+      this._dll_SwitchDesktop := this._dll_SwitchDesktop_normal
+      this._dll_CreateDesktop := this._dll_CreateDesktop_normal
+      this._dll_RemoveDesktop := this._dll_RemoveDesktop_normal
+      this.idx_GetId := 4
+      this.idx_VirtualDesktopNameChanged := 8
+      this._dll_VirtualDesktopNameChanged := VD._dll_VirtualDesktopNameChanged_normal
+      this.idx_SetDesktopName := 15
+      this.idx_GetName := 5
+      this.idx_VirtualDesktopWallpaperChanged := 11
+      this._dll_VirtualDesktopWallpaperChanged := VD._dll_VirtualDesktopWallpaperChanged_normal
+      this.idx_SetDesktopWallpaper := 16
+      this.idx_GetWallpaper := 6
+      this.idx_VirtualDesktopCreated := 3
+      this.idx_VirtualDesktopDestroyBegin := 4
+      this.idx_VirtualDesktopDestroyFailed := 5
+      this.idx_VirtualDesktopDestroyed := 6
+      this.idx_ViewVirtualDesktopChanged := 9
+      this.idx_CurrentVirtualDesktopChanged := 10
+      this._dll_VirtualDesktopCreated := VD._dll_VirtualDesktopCreated_normal
+      this._dll_VirtualDesktopDestroyBegin := VD._dll_VirtualDesktopDestroyBegin_normal
+      this._dll_VirtualDesktopDestroyFailed := VD._dll_VirtualDesktopDestroyFailed_normal
+      this._dll_VirtualDesktopDestroyed := VD._dll_VirtualDesktopDestroyed_normal
+      this._dll_ViewVirtualDesktopChanged := VD._dll_ViewVirtualDesktopChanged_normal
+      this._dll_CurrentVirtualDesktopChanged := VD._dll_CurrentVirtualDesktopChanged_normal
+      this.IVirtualDesktopNotification_methods_count := 14
+    } else if (buildNumber < 26100) {
+      IID_IVirtualDesktopManagerInternal_str := "{53f5ca0b-158f-4124-900c-057158060b27}"
+      IID_IVirtualDesktop_str := "{3f07f4be-b107-441a-af0f-39d82529072c}"
+      this.IID_IVirtualDesktopNotification_n1 := 5308375338100058445
+      this.IID_IVirtualDesktopNotification_n2 := -2401892766147978065
+      idx_MoveViewToDesktop := 4
+      idx_GetCurrentDesktop := 6
+      idx_GetDesktops := 7
+      idx_SwitchDesktop := 9
+      idx_CreateDesktop := 10
+      idx_RemoveDesktop := 12
+      this.idx_SwitchDesktopWithAnimation := 21
+      this._dll_MoveViewToDesktop := this._dll_MoveViewToDesktop_normal
+      this._dll_GetCurrentDesktop := this._dll_GetCurrentDesktop_normal
+      this._dll_GetDesktops := this._dll_GetDesktops_normal
+      this._dll_SwitchDesktop := this._dll_SwitchDesktop_normal
       this._dll_CreateDesktop := this._dll_CreateDesktop_normal
       this._dll_RemoveDesktop := this._dll_RemoveDesktop_normal
       this.idx_GetId := 4
@@ -189,28 +244,31 @@ class VD {
       this._dll_CurrentVirtualDesktopChanged := VD._dll_CurrentVirtualDesktopChanged_normal
       this.IVirtualDesktopNotification_methods_count := 14
     } else {
-      IID_IVirtualDesktopManagerInternal_str := "{4970ba3d-fd4e-4647-bea3-d89076ef4b9c}"
+      IID_IVirtualDesktopManagerInternal_str := "{53f5ca0b-158f-4124-900c-057158060b27}"
       IID_IVirtualDesktop_str := "{3f07f4be-b107-441a-af0f-39d82529072c}"
       this.IID_IVirtualDesktopNotification_n1 := 5308375338100058445
       this.IID_IVirtualDesktopNotification_n2 := -2401892766147978065
       idx_MoveViewToDesktop := 4
       idx_GetCurrentDesktop := 6
       idx_GetDesktops := 7
-      idx_CreateDesktop := 10
-      idx_RemoveDesktop := 12
+      idx_SwitchDesktop := 9
+      idx_CreateDesktop := 11
+      idx_RemoveDesktop := 13
+      this.idx_SwitchDesktopWithAnimation := 22
       this._dll_MoveViewToDesktop := this._dll_MoveViewToDesktop_normal
       this._dll_GetCurrentDesktop := this._dll_GetCurrentDesktop_normal
       this._dll_GetDesktops := this._dll_GetDesktops_normal
+      this._dll_SwitchDesktop := this._dll_SwitchDesktop_normal
       this._dll_CreateDesktop := this._dll_CreateDesktop_normal
       this._dll_RemoveDesktop := this._dll_RemoveDesktop_normal
       this.idx_GetId := 4
       this.idx_VirtualDesktopNameChanged := 8
       this._dll_VirtualDesktopNameChanged := VD._dll_VirtualDesktopNameChanged_normal
-      this.idx_SetDesktopName := 15
+      this.idx_SetDesktopName := 16
       this.idx_GetName := 5
       this.idx_VirtualDesktopWallpaperChanged := 11
       this._dll_VirtualDesktopWallpaperChanged := VD._dll_VirtualDesktopWallpaperChanged_normal
-      this.idx_SetDesktopWallpaper := 16
+      this.idx_SetDesktopWallpaper := 17
       this.idx_GetWallpaper := 6
       this.idx_VirtualDesktopCreated := 3
       this.idx_VirtualDesktopDestroyBegin := 4
@@ -235,21 +293,31 @@ class VD {
     this.ptr_MoveViewToDesktop := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, idx_MoveViewToDesktop)
     this.ptr_GetCurrentDesktop := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, idx_GetCurrentDesktop)
     this.ptr_GetDesktops := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, idx_GetDesktops)
+    this.ptr_SwitchDesktop := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, idx_SwitchDesktop)
     this.ptr_CreateDesktop := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, idx_CreateDesktop)
     this.ptr_RemoveDesktop := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, idx_RemoveDesktop)
+    if (this.idx_SwitchDesktopWithAnimation > -1) {
+      this.ptr_SwitchDesktopWithAnimation := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, this.idx_SwitchDesktopWithAnimation)
+    }
     if (this.idx_SetDesktopName > -1) {
       this.ptr_SetDesktopName := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, this.idx_SetDesktopName)
     }
     if (this.idx_SetDesktopWallpaper > -1) {
       this.ptr_SetDesktopWallpaper := this._vtable(this.IVirtualDesktopManagerInternal.Ptr, this.idx_SetDesktopWallpaper)
     }
+    this.ptr_IsAppIdPinned := this._vtable(this.IVirtualDesktopPinnedApps.Ptr, 3)
+    this.ptr_PinAppID := this._vtable(this.IVirtualDesktopPinnedApps.Ptr, 4)
+    this.ptr_UnpinAppID := this._vtable(this.IVirtualDesktopPinnedApps.Ptr, 5)
     this.ptr_IsViewPinned := this._vtable(this.IVirtualDesktopPinnedApps.Ptr, 6)
     this.ptr_PinView := this._vtable(this.IVirtualDesktopPinnedApps.Ptr, 7)
     this.ptr_UnpinView := this._vtable(this.IVirtualDesktopPinnedApps.Ptr, 8)
     this.ptr_GetViewForHwnd := this._vtable(this.IApplicationViewCollection.Ptr, 6)
     this.IID_IVirtualDesktop_ptr := DllCall("GlobalAlloc", "UInt", 0x00, "Uint", 16, "Ptr")
     DllCall("ole32\CLSIDFromString", "Str", IID_IVirtualDesktop_str, "Ptr", this.IID_IVirtualDesktop_ptr)
-    this.savedLocalizedWord_Desktop := false
+    OnMessage(DllCall("RegisterWindowMessageW", "WStr", "TaskbarCreated", "Uint"), VD._ExplorerRestarted)
+  }
+  static _ExplorerRestarted(lParam, msg, hwnd) {
+    VD._init()
   }
   static _dll_MoveViewToDesktop_normal(IApplicationView, IVirtualDesktop) {
     DllCall(this.ptr_MoveViewToDesktop, "Ptr", this.IVirtualDesktopManagerInternal.Ptr, "Ptr", IApplicationView, "Ptr", IVirtualDesktop)
@@ -261,6 +329,9 @@ class VD {
   static _dll_GetDesktops_normal() {
     DllCall(this.ptr_GetDesktops, "Ptr", this.IVirtualDesktopManagerInternal.Ptr, "Ptr*", &IObjectArray := 0)
     return IObjectArray
+  }
+  static _dll_SwitchDesktop_normal(IVirtualDesktop) {
+    DllCall(this.ptr_SwitchDesktop, "Ptr", this.IVirtualDesktopManagerInternal.Ptr, "Ptr", IVirtualDesktop)
   }
   static _dll_CreateDesktop_normal() {
     DllCall(this.ptr_CreateDesktop, "Ptr", this.IVirtualDesktopManagerInternal.Ptr, "Ptr*", &IVirtualDesktop_created := 0)
@@ -277,9 +348,22 @@ class VD {
     DllCall(this.ptr_GetDesktops, "Ptr", this.IVirtualDesktopManagerInternal.Ptr, "Ptr", 0, "Ptr*", &IObjectArray := 0)
     return IObjectArray
   }
+  static _dll_SwitchDesktop_HMONITOR(IVirtualDesktop) {
+    DllCall(this.ptr_SwitchDesktop, "Ptr", this.IVirtualDesktopManagerInternal.Ptr, "Ptr", 0, "Ptr", IVirtualDesktop)
+  }
   static _dll_CreateDesktop_HMONITOR() {
     DllCall(this.ptr_CreateDesktop, "Ptr", this.IVirtualDesktopManagerInternal.Ptr, "Ptr", 0, "Ptr*", &IVirtualDesktop_created := 0)
     return IVirtualDesktop_created
+  }
+  static _dll_IsAppIdPinned(exe_path) {
+    DllCall(this.ptr_IsAppIdPinned, "Ptr", this.IVirtualDesktopPinnedApps.Ptr, "WStr", exe_path, "Int*", &appIsPinned := 0)
+    return appIsPinned
+  }
+  static _dll_PinAppID(exe_path) {
+    DllCall(this.ptr_PinAppID, "Ptr", this.IVirtualDesktopPinnedApps.Ptr, "WStr", exe_path)
+  }
+  static _dll_UnpinAppID(exe_path) {
+    DllCall(this.ptr_UnpinAppID, "Ptr", this.IVirtualDesktopPinnedApps.Ptr, "WStr", exe_path)
   }
   static _dll_IsViewPinned(IApplicationView) {
     DllCall(this.ptr_IsViewPinned, "Ptr", this.IVirtualDesktopPinnedApps.Ptr, "Ptr", IApplicationView, "Int*", &viewIsPinned := 0)
@@ -298,38 +382,73 @@ class VD {
   static getCount() {
     return this._GetDesktops_Obj().GetCount()
   }
-  static goToDesktopNum(desktopNum) {
-    firstWindowId := this._getFirstWindowInVD(desktopNum)
-    VD_animation_gui := Gui("-Border -SysMenu +Owner -Caption")
-    VD_animation_gui_hwnd := VD_animation_gui.Hwnd + 0
+  static goToDesktopNum(desktopNum, shouldActivateUponArrival := true) {
+    if (shouldActivateUponArrival && this._shouldActivateUponArrival()) {
+      firstWindowId := this._getFirstWindowInVD(desktopNum)
+      if (!firstWindowId) {
+        firstWindowId := WinExist("ahk_class Progman ahk_exe explorer.exe")
+      }
+    } else {
+      firstWindowId := 0
+    }
     IVirtualDesktop := this._GetDesktops_Obj().GetAt(desktopNum)
-    GUID_Desktop := Buffer(16)
-    ptr_GetId := this._vtable(IVirtualDesktop, this.idx_GetId)
-    DllCall(ptr_GetId, "Ptr", IVirtualDesktop, "Ptr", GUID_Desktop)
-    DllCall(this.ptr_MoveWindowToDesktop, "Ptr", this.IVirtualDesktopManager.Ptr, "Ptr", VD_animation_gui_hwnd, "Ptr", GUID_Desktop)
-    DllCall("ShowWindow", "Ptr", VD_animation_gui_hwnd, "Int", 4)
-    this.SetForegroundWindow(VD_animation_gui_hwnd)
+    if (VD.animation_on && firstWindowId) {
+      if (this.idx_SwitchDesktopWithAnimation > -1) {
+        DllCall("SetForegroundWindow", "Ptr", firstWindowId)
+        DllCall(this.ptr_SwitchDesktopWithAnimation, "Ptr", this.IVirtualDesktopManagerInternal.Ptr, "Ptr", IVirtualDesktop)
+        this._waitForCurrentDesktopArrived(desktopNum, firstWindowId)
+      } else {
+        VD_animation_gui := Gui("-Border -SysMenu +Owner -Caption")
+        VD_animation_gui_hwnd := VD_animation_gui.Hwnd + 0
+        GUID_Desktop := Buffer(16)
+        ptr_GetId := this._vtable(IVirtualDesktop, this.idx_GetId)
+        DllCall(ptr_GetId, "Ptr", IVirtualDesktop, "Ptr", GUID_Desktop)
+        DllCall(this.ptr_MoveWindowToDesktop, "Ptr", this.IVirtualDesktopManager.Ptr, "Ptr", VD_animation_gui_hwnd, "Ptr", GUID_Desktop)
+        DllCall("ShowWindow", "Ptr", VD_animation_gui_hwnd, "Int", 4)
+        this.SetForegroundWindow(VD_animation_gui_hwnd)
+        this._waitForCurrentDesktopArrived(desktopNum, firstWindowId)
+        VD_animation_gui.Destroy()
+      }
+    } else {
+      this._dll_SwitchDesktop(IVirtualDesktop)
+      DllCall("SetForegroundWindow", "Ptr", firstWindowId)
+      this._waitForCurrentDesktopArrived(desktopNum, firstWindowId)
+    }
+  }
+  static _shouldActivateUponArrival() {
+    if (WinActive(this._getLocalizedWord_TaskView() " ahk_exe explorer.exe")) {
+      return false
+    }
+    return true
+  }
+  static _waitForCurrentDesktopArrived(desktopNum, firstWindowId) {
     loop 20 {
       if (this.getCurrentDesktopNum() == desktopNum) {
-        if (firstWindowId) {
-          DllCall("SetForegroundWindow", "Ptr", firstWindowId)
-        } else {
-          this._activateDesktopBackground()
-        }
+        DllCall("SetForegroundWindow", "Ptr", firstWindowId)
         break
       }
       Sleep 25
     }
-    VD_animation_gui.Destroy()
   }
-  static _getLocalizedWord_Desktop() {
-    if (this.savedLocalizedWord_Desktop) {
-      return this.savedLocalizedWord_Desktop
-    }
+  static _onceLocalizedWord_TaskView() {
+    hModule := (hModule := DllCall("GetModuleHandle", "Str", "twinui.pcshell.dll", "Ptr")) ? hModule : DllCall("LoadLibrary", "Str", "twinui.pcshell.dll", "Ptr")
+    length := DllCall("LoadString", "Uint", hModule, "Uint", 1512, "Ptr*", &lpBuffer := 0, "Int", 0)
+    savedLocalizedWord_TaskView := StrGet(lpBuffer, length, "UTF-16")
+    return savedLocalizedWord_TaskView
+  }
+  static _onceLocalizedWord_Desktop() {
     hModule := DllCall("GetModuleHandle", "Str", "shell32.dll", "Ptr")
     length := DllCall("LoadString", "Uint", hModule, "Uint", 21769, "Ptr*", &lpBuffer := 0, "Int", 0)
-    this.savedLocalizedWord_Desktop := StrGet(lpBuffer, length, "UTF-16")
-    return this.savedLocalizedWord_Desktop
+    savedLocalizedWord_Desktop := StrGet(lpBuffer, length, "UTF-16")
+    return savedLocalizedWord_Desktop
+  }
+  static _getLocalizedWord_TaskView() {
+    static savedLocalizedWord_TaskView := VD._onceLocalizedWord_TaskView()
+    return savedLocalizedWord_TaskView
+  }
+  static _getLocalizedWord_Desktop() {
+    static savedLocalizedWord_Desktop := VD._onceLocalizedWord_Desktop()
+    return savedLocalizedWord_Desktop
   }
   static getNameFromDesktopNum(desktopNum) {
     desktopName := ""
@@ -397,7 +516,7 @@ class VD {
     theHwnd := found[1]
     thePView := found[2]
     desktopNum_ofWindow := this._desktopNum_from_pView(thePView)
-    this.goToDesktopNum(desktopNum_ofWindow)
+    this.goToDesktopNum(desktopNum_ofWindow, !activateYourWindow)
     if (activateYourWindow) {
       WinActivate "ahk_id " theHwnd
     }
@@ -405,7 +524,7 @@ class VD {
   static MoveWindowToDesktopNum(wintitle, desktopNum) {
     found := this._tryGetValidWindow(wintitle)
     if (!found) {
-      return -1
+      return this.WindowInfo(0, desktopNum)
     }
     theHwnd := found[1]
     thePView := found[2]
@@ -422,10 +541,22 @@ class VD {
     this._dll_MoveViewToDesktop(thePView, IVirtualDesktop)
     if (needActivateWindowUnder) {
       firstWindowId := this._getFirstWindowInVD(currentDesktopNum, theHwnd)
-      if (firstWindowId) {
-        this.SetForegroundWindow(firstWindowId)
-      } else {
-        this._activateDesktopBackground()
+      if (!firstWindowId) {
+        firstWindowId := WinExist("ahk_class Progman ahk_exe explorer.exe")
+      }
+      this.SetForegroundWindow(firstWindowId)
+    }
+    return this.WindowInfo(theHwnd, desktopNum)
+  }
+  class WindowInfo {
+    __New(hwnd, desktopNum) {
+      this.hwnd := hwnd
+      this.desktopNum := desktopNum
+    }
+    follow() {
+      VD.goToDesktopNum(this.desktopNum, false)
+      if (WinExist("ahk_id " this.hwnd)) {
+        WinActivate
       }
     }
   }
@@ -442,8 +573,7 @@ class VD {
   static MoveWindowToRelativeDesktopNum(wintitle, relative_count) {
     desktopNum_ofWindow := this.getDesktopNumOfWindow(wintitle)
     absolute_desktopNum := this.getRelativeDesktopNum(desktopNum_ofWindow, relative_count)
-    this.MoveWindowToDesktopNum(wintitle, absolute_desktopNum)
-    return absolute_desktopNum
+    return this.MoveWindowToDesktopNum(wintitle, absolute_desktopNum)
   }
   static gotoRelativeDesktopNum(relative_count) {
     this.goToDesktopNum(this.getRelativeDesktopNum(this.getCurrentDesktopNum(), relative_count))
@@ -498,6 +628,24 @@ class VD {
     IVirtualDesktop := Desktops_Obj.GetAt(desktopNum)
     IVirtualDesktop_fallback := Desktops_Obj.GetAt(fallback_desktopNum)
     this._dll_RemoveDesktop(IVirtualDesktop, IVirtualDesktop_fallback)
+  }
+  static IsExePinned(exe_path) {
+    appIsPinned := this._dll_IsAppIdPinned(exe_path)
+    return appIsPinned
+  }
+  static TogglePinExe(exe_path) {
+    appIsPinned := this._dll_IsAppIdPinned(exe_path)
+    if (appIsPinned) {
+      this._dll_UnpinAppID(exe_path)
+    } else {
+      this._dll_PinAppID(exe_path)
+    }
+  }
+  static PinExe(exe_path) {
+    this._dll_PinAppID(exe_path)
+  }
+  static UnPinExe(exe_path) {
+    this._dll_UnpinAppID(exe_path)
   }
   static IsWindowPinned(wintitle) {
     found := this._tryGetValidWindow(wintitle)
@@ -698,6 +846,7 @@ class VD {
           Send "{Blind}" toRelease
         }
       }
+      BlockInput "On"
       Send "{LAlt Down}{LAlt Down}"
       DllCall("SetForegroundWindow", "Ptr", hwnd)
       toAppend := ""
@@ -728,10 +877,8 @@ class VD {
       if (toAppend) {
         Send "{Blind}" toAppend
       }
+      BlockInput "Off"
     }
-  }
-  static _activateDesktopBackground() {
-    DllCall("SetForegroundWindow", "Ptr", WinExist("ahk_class Progman ahk_exe explorer.exe"))
   }
   static _getFirstWindowInVD(desktopNum, excludeHwnd := 0) {
     bak_DetectHiddenWindows := A_DetectHiddenWindows
@@ -818,14 +965,15 @@ class VD {
     return this.IObjectArray_Wrapper(IObjectArray, this.IID_IVirtualDesktop_ptr)
   }
   static _isValidWindow(hWnd, checkUpper := true) {
+    static GetWindowLong_Name := (A_PtrSize == 8) ? "GetWindowLongPtrW" : "GetWindowLongW"
     returnValue := [1, 0, 0]
     breakToReturnFalse:
     loop 1 {
-      dwStyle := DllCall("GetWindowLongPtrW", "Ptr", hWnd, "Int", -16, "Ptr")
+      dwStyle := DllCall(GetWindowLong_Name, "Ptr", hWnd, "Int", -16, "Ptr")
       if (!(dwStyle & 0x10000000)) {
         break breakToReturnFalse
       }
-      dwExStyle := DllCall("GetWindowLongPtrW", "Ptr", hWnd, "Int", -20, "Ptr")
+      dwExStyle := DllCall(GetWindowLong_Name, "Ptr", hWnd, "Int", -20, "Ptr")
       if (!(dwExStyle & 0x00040000)) {
         if (dwExStyle & 0x00000080 || dwExStyle & 0x08000000) {
           break breakToReturnFalse
