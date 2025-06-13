@@ -7,14 +7,14 @@
  
  ## Usage:
  
-    Win+Ctl+Left       		Switch control to Desktop to the left (with cycle to right most)
+    Win+Ctl+Left       			Switch control to Desktop to the left (with cycle to right most)
     Win+Ctl+Right       		Switch control to Desktop to the right (with cycle to left most)
     Win+Alt+Left        		Move app to Desktop on left
     Win+Alt+Right       		Move app to Desktop on right
 	Ctl+Win+Alt+Left    		Move app to Desktop on left and follow
     Ctl+Win+Alt+Right   		Move app to Desktop on right and follow
-	Win+Ctrl+D			Create a new Desktop and move to it
-	Win+Alt+Del			Deletes the current virtual Desktop
+	Win+Ctrl+D					Create a new Desktop and move to it
+	Win+Alt+Del					Deletes the current virtual Desktop
     
     The script also ensures that at least three desktops are open at startup.
 
@@ -46,6 +46,11 @@
 
  ## Version 6 reinstated using the Left and Right arrow keys which seems to work again:
 	Updated to use latest VD.ah2 to fix creating/removing Desktops in win11
+	but had to use previous code for builds < 20348 or else win10 broke,
+	so just used old VD.ah2 but added changed above 22631 to use
+	idx_CreateDesktop := 11
+    idx_RemoveDesktop := 13
+	so that build 26100 would create and remove desktops.
 
  ## Build method (in case you want to modify it):
  
