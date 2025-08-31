@@ -1,6 +1,8 @@
  # AHKMoveToDesktop - https://github.com/daveM246/AHKMoveToDesktop
  A compiled Auto Hot Key script to enable virtual desktop and app switching via keyboard shortcuts including display of current desktop number.
 
+ Quickly move applications and/or switch to other desktops using hot keys. 
+
  Works on Windows 10 and 11 
  
  Can be used in place of VirtualDesktopManager and MoveToDesktop which both stopped working on Windows 11
@@ -25,7 +27,8 @@
 	Win + R to open the run window and type shell:startup to open the startup folder).
     Pin the icon to the visible portion of the system tray to show the current desktop number.
 
- ## Version 2 updates after it stopped working on windows 11 build 22621:
+ ## Version History
+ ### Version 2 updates after it stopped working on windows 11 build 22621:
 	Converted MoveToDesktop.ahk to use AHK V2
 	Built using branch V2_port of VD.ahk
 	Used VD.ah2 as modified by mac-s-g see https://github.com/FuPeiJiang/VD.ahk/issues/55
@@ -35,16 +38,16 @@
 	Compiled into an exe 'AHKMoveToDesktop_Win11_x64.exe'
 	Included the two SetForegroundWindow files which are required for VD.ah2
 
- ## Version 3 updates after it stopped working on windows 11 build 22631:
+ ### Version 3 updates after it stopped working on windows 11 build 22631:
 	Built using lattest VD.ah2 from branch V2_port of VD.ahk
 	
- ## Version 4 reinstated using the Left and Right arrow keys which seems to work again:
+ ### Version 4 reinstated using the Left and Right arrow keys which seems to work again:
 	Built using latest AHK v2.0.12
 
- ## Version 5 reinstated using the Left and Right arrow keys which seems to work again:
+ ### Version 5 reinstated using the Left and Right arrow keys which seems to work again:
 	Added move app to window and follow using Ctrl-Win_Alt plus arrow keys
 
- ## Version 6 update for Windows 11 build 26100
+ ### Version 6 update for Windows 11 build 26100
  
  ## Build method (in case you want to modify it):
  
